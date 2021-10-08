@@ -10,16 +10,19 @@ $("#currentDay").text(today.format("dddd, MMMM DD, YYYY"));
 
 $(function timeColorCode() {
     const $rowsArr = $(".row");
-    //works up to ^
     console.log($rowsArr);
+//works up to ^
 
-    // for( i = 0; i < $rowsArr.length; i++);
-    // $($rowsArr).ammendChild.("hour")
-    // if ($($rowsArr[i]).text() === ".hour") {
-    //     $("div").addClass("past");
 
-    // }
-});
+    for( i = 0; i < $rowsArr.length; i++);
+    $($rowsArr).ammendChild.("hour")
+    if ($($rowsArr[i]).text() < ".hour") {
+        $("div").addClass("past");
+    }; else if ($($rowsArr[i]).text() === ".hour") {
+        $("div").addClass("present");
+    } else if ($($rowsArr[i]).text() > ".hour") {
+        $("div").addClass("future");
+};
 
 //save description when the save button is clicked
 $(".fa-save").on("click", function() {
