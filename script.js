@@ -6,18 +6,18 @@ $("#currentDay").text(today.format("dddd, MMMM DD, YYYY"));
 var descriptionEl = $($(".saveBtn").siblings("#description"));
 
 // color coding the text area box
-$(function timeColorCode() {
+(function timeColorCode() {
     const $rowsArr = $(".row");
     for (i = 0; i < $rowsArr.length; i++) {
         $($rowsArr[i]).addClass("hour")
         const container = $($rowsArr[i]).children()[2]
 //if the planner hour is past, present, or future of the current hour, the text area will be a different color
         if (Number($($rowsArr[i]).attr("id")) < currentHour) {
-            $(container).addClass("past")
+            (container).addClass("past")
         } else if (Number($($rowsArr[i]).attr("id")) === currentHour) {
-            $(container).addClass("present")
+            (container).addClass("present")
         } else if (Number($($rowsArr[i]).attr("id")) > currentHour) {
-            $(container).addClass("future")
+            (container).addClass("future")
         }
     }
 });
