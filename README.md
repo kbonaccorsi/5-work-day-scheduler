@@ -46,4 +46,4 @@ THEN the saved events persist
   URL: https://kbonaccorsi.github.io/5-work-day-scheduler/
 github: https://github.com/kbonaccorsi/5-work-day-scheduler
 
-  Screenshot:
+  Screenshot gif: ![Work Day Scheduler](https://user-images.githubusercontent.com/86372011/136574226-38cbc951-fb47-4875-8b77-d0aba68f5413.gif)
