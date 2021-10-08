@@ -1,30 +1,43 @@
 // global variables
-var timeEl = document.querySelectorAll("datetime");
-var inputEl = document.querySelectorAll(".description");
+var saveBtnEl= $(".saveBtn");
 var currentHour = moment().hours();
 var today = moment();
 $("#currentDay").text(today.format("dddd, MMMM DD, YYYY"));
-
-
-//continue debugging this function 
+var descriptionEl = $($(".saveBtn").siblings("#description"));
 
 $(function timeColorCode() {
-    const $rowsArr = $(".row");
-    console.log($rowsArr);
-//works up to ^
+        const $rowsArr = $(".row");
+        console.log($rowsArr);
+        for( i = 0; i < $rowsArr.length; i++) {
+        $($rowsArr[i]).addClass("hour")
+        const container = $($rowsArr[i]).children() [2]
+        console.log(Number($($rowsArr[i]).attr("id")), container)
+        if (Number($($rowsArr[i]).attr("id")) < currentHour) {
+            $(container).addClass("past")
+        } else if (Number($($rowsArr[i]).attr("id")) === currentHour) {
+            $(container).addClass("present")
+        } else if (Number($($rowsArr[i]).attr("id")) > currentHour) {
+            $(container).addClass("future")
+        }
+    }
+});
 
+saveBtnEl.on("click",function (e) {
+    e.preventDefault();
+    
+    var descriptionText= descriptionEl.value;
+    if (descriptionText ==="") {
+        return;
+        console.log(descriptionText);
+}
+});
 
-    for( i = 0; i < $rowsArr.length; i++);
-    $($rowsArr).ammendChild.("hour")
-    if ($($rowsArr[i]).text() < ".hour") {
-        $("div").addClass("past");
-    }; else if ($($rowsArr[i]).text() === ".hour") {
-        $("div").addClass("present");
-    } else if ($($rowsArr[i]).text() > ".hour") {
-        $("div").addClass("future");
+function storeDescriptions() {
+    localStorage.setItem("#description", descriptionEl)
+renderDescription();
 };
 
-//save description when the save button is clicked
-$(".fa-save").on("click", function() {
-    $(".description").text().trim();
-});
+
+function renderDescription () {
+    var savingDescriptionEl = localStorage.getItem("#description")
+};
